@@ -1,0 +1,28 @@
+name: Print Secrets
+
+on:
+  workflow_dispatch:
+    inputs:
+      secrets:
+        description: 'Comma-separated list of secret names'
+        required: true
+        default: 'SECRET_NAME_1,SECRET_NAME_2'
+
+jobs:
+  print-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print Secrets
+        env:
+          SECRETS: ${{ github.event.inputs.secrets }}
+        run: |
+          # Split the comma-separated secrets into an array
+          IFS=',' read -r -a secret_names <<< "$SECRETS"
+          # Iterate over each secret name and print its value
+          for secret_name in "${secret_names[@]}"; do
+            secret_value="${{ secrets[secret_name] }}"
+            echo "Value of secret $secret_name: $secret_value"
+          done
