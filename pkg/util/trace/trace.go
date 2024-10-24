@@ -69,7 +69,7 @@ func Init(ctx context.Context, opts ...TracerProviderOption) (context.Context, e
 	config := &GetTracerProvider().tracerProviderConfig
 
 	// init Tracer
-	gTracer = GetTracerProvider().Tracer("MatrixOne")
+	gTracer = GetTracerProvider().Tracer("QLoong_DB")
 
 	// init DefaultContext / DefaultSpanContext
 	var spanId SpanID

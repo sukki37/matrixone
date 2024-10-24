@@ -943,7 +943,7 @@ var gSysVarsDefs = map[string]SystemVariable{
 		Dynamic:           false,
 		SetVarHintApplies: false,
 		Type:              InitSystemVariableStringType("version_comment"),
-		Default:           "MatrixOne",
+		Default:           "QLoong_DB",
 	},
 	"tx_isolation": {
 		Name:              "tx_isolation",

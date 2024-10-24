@@ -40,7 +40,7 @@ require (
 	github.com/tidwall/pretty v1.2.1
 	github.com/yireyun/go-queue v0.0.0-20220725040158-a4dd64810e1e
 	go.uber.org/zap v1.21.0
-	golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab
+	golang.org/x/sys v0.26.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
 )
 
@@ -116,9 +116,9 @@ require (
 	github.com/yusufpapurcu/wmi v1.2.2 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.8.0
-	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
+	golang.org/x/crypto v0.28.0 // indirect
 	golang.org/x/exp v0.0.0-20220414153411-bcd21879b8fd
-	golang.org/x/net v0.0.0-20211216030914-fe4d6282115f // indirect
+	golang.org/x/net v0.30.0 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

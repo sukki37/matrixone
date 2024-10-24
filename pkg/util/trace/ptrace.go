@@ -37,7 +37,7 @@ func defaultMOTracerProvider() *MOTracerProvider {
 		},
 	}
 	WithNode("node_uuid", NodeTypeStandalone).apply(&pTracer.tracerProviderConfig)
-	WithMOVersion("MatrixOne").apply(&pTracer.tracerProviderConfig)
+	WithMOVersion("QLoong_DB").apply(&pTracer.tracerProviderConfig)
 	return pTracer
 }
 

@@ -86,7 +86,7 @@ func (l *Lexer) Lex(lval *yySymType) int {
 }
 
 func (l *Lexer) Error(err string) {
-	errMsg := fmt.Sprintf("You have an error in your SQL syntax; check the manual that corresponds to your MatrixOne server version for the right syntax to use. %s", err)
+	errMsg := fmt.Sprintf("You have an error in your SQL syntax; check the manual that corresponds to your QLoong_DB server version for the right syntax to use. %s", err)
 	near := l.scanner.buf[l.scanner.PrePos:]
 	var lenStr string
 	if len(near) > 1024 {
