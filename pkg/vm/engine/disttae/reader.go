@@ -133,6 +133,11 @@ func (r *emptyReader) Close() error {
 	return nil
 }
 
+func (r *emptyReader) BlkCnt() int {
+	return 0
+}
+
+
 func (r *emptyReader) Read(_ context.Context, _ []string,
 	_ *plan.Expr, _ *mpool.MPool, _ engine.VectorPool) (*batch.Batch, error) {
 	return nil, nil
@@ -202,6 +207,11 @@ func (r *blockReader) GetOrderBy() []*plan.OrderBySpec {
 func (r *blockReader) SetOrderBy(orderby []*plan.OrderBySpec) {
 	r.OrderBy = orderby
 }
+
+func (r *blockReader) BlkCnt() int {
+	return len(r.blks)
+}
+
 
 func (r *blockReader) needReadBlkByZM(i int) bool {
 	zm := r.blockZMS[i]
@@ -585,6 +595,10 @@ func (r *blockMergeReader) loadDeletes(ctx context.Context, cols []string) error
 	return nil
 }
 
+func (r *blockMergeReader) BlkCnt() int {
+	return len(r.blks)
+}
+
 func (r *blockMergeReader) Read(
 	ctx context.Context,
 	cols []string,
@@ -641,6 +655,14 @@ func (r *mergeReader) SetOrderBy(orderby []*plan.OrderBySpec) {
 
 func (r *mergeReader) Close() error {
 	return nil
+}
+
+func (r *mergeReader) BlkCnt() int {
+	cnt := 0
+	for _, rd := range r.rds {
+		cnt += rd.BlkCnt()
+	}
+	return cnt
 }
 
 func (r *mergeReader) Read(

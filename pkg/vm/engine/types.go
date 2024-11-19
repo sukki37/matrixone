@@ -666,6 +666,8 @@ type Reader interface {
 	SetOrderBy([]*plan.OrderBySpec)
 	GetOrderBy() []*plan.OrderBySpec
 	SetFilterZM(objectio.ZoneMap)
+	//add for debug.
+	BlkCnt() int
 }
 
 type Database interface {
